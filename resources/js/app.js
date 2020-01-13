@@ -10,11 +10,19 @@ window.Vue = require('vue');
 
 /**vue router section */
 import VueRouter from 'vue-router'
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+
 const routes = [
     {path: '/home', component: require('./components/Home.vue').default},
+    {path: '/about', component: require('./components/About.vue').default},
+    {path: '/services', component: require('./components/Services.vue').default},
+    {path: '/products', component: require('./components/Products.vue').default},
+    {path: '/contact', component: require('./components/Contact.vue').default},
 ];
 
+const router = new VueRouter({
+    routes // short for `routes: routes`
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -37,4 +45,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });
