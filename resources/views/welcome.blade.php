@@ -1,6 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.vue')
 
 @section('content')
-
-
+    <Index></Index>
 @endsection

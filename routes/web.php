@@ -17,7 +17,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::resources([
+    'index'=>'IndexController'
+]);
+
+
+Route::resources([
+    'about'=>'AboutController'
+]);
+
+
+Route::resources([
+    'portfolio'=>'PortfolioController'
+]);
+
+Route::resources([
+    'contact'=>'ContactController'
+]);
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 
 Route::get('{path}',"HomeController@index")->where( 'path', '([A-z 0-9]+)?' );

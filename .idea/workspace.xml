@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9b64d2b-2810-4386-94fe-784825160aec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/About.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Contact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Contact.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Home.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +182,17 @@
       <option name="presentableId" value="Default" />
       <updated>1578893766719</updated>
       <workItem from="1578893771434" duration="4636000" />
-      <workItem from="1578906724660" duration="2936000" />
+      <workItem from="1578906724660" duration="3668000" />
+      <workItem from="1578928078463" duration="4437000" />
+      <workItem from="1578933039447" duration="8166000" />
+      <workItem from="1579067977481" duration="5055000" />
+      <workItem from="1579396812172" duration="821000" />
+      <workItem from="1580135505485" duration="751000" />
+      <workItem from="1580203605974" duration="11309000" />
+      <workItem from="1580228887535" duration="3141000" />
+      <workItem from="1580232198645" duration="481000" />
+      <workItem from="1580298809688" duration="5450000" />
+      <workItem from="1580531502967" duration="5106000" />
     </task>
     <servers />
   </component>
@@ -188,13 +200,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="503" y="325" width="349" height="151" key="NewPhpFileDialog" timestamp="1578896742830">
+    <state x="416" y="148" width="524" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578929407608">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="503" y="325" width="349" height="151" key="NewPhpFileDialog/0.30.1366.738@0.30.1366.738" timestamp="1578896742830" />
-    <state x="376" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1578906725030">
+    <state x="416" y="148" width="524" height="504" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.30.1366.738@0.30.1366.738" timestamp="1578929407608" />
+    <state x="466" y="157" width="424" height="487" key="FileChooserDialogImpl" timestamp="1578929377528">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="376" y="226" key="com.intellij.ide.util.TipDialog/0.30.1366.738@0.30.1366.738" timestamp="1578906725030" />
+    <state x="466" y="157" width="424" height="487" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1578929377528" />
+    <state x="503" y="325" width="349" height="151" key="NewPhpFileDialog" timestamp="1580299372245">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="503" y="325" width="349" height="151" key="NewPhpFileDialog/0.30.1366.738@0.30.1366.738" timestamp="1580299372245" />
+    <state x="376" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1580532501901">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="376" y="226" key="com.intellij.ide.util.TipDialog/0.30.1366.738@0.30.1366.738" timestamp="1580532501901" />
   </component>
 </project>

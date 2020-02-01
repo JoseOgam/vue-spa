@@ -13,14 +13,16 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 const routes = [
-    {path: '/home', component: require('./components/Home.vue').default},
+    {path: '/index', component: require('./components/Index.vue').default},
     {path: '/about', component: require('./components/About.vue').default},
+    {path: '/portfolio', component: require('./components/Portfolio.vue').default},
     {path: '/services', component: require('./components/Services.vue').default},
     {path: '/products', component: require('./components/Products.vue').default},
     {path: '/contact', component: require('./components/Contact.vue').default},
 ];
 
 const router = new VueRouter({
+    mode: 'history',
     routes // short for `routes: routes`
 });
 
@@ -36,6 +38,10 @@ const router = new VueRouter({
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('index', require('./components/Index.vue').default);
+Vue.component('about', require('./components/About.vue').default);
+Vue.component('portfolio', require('./components/Portfolio.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
