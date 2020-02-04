@@ -15,12 +15,13 @@
                             </thead>
                             <tbody>
 
-                            <tr  v-for="contact in contact.data" :key="contact.id">
+                            <tr v-for="contact in contact.data" :key="contact.id">
                                 <td>{{contact.id}}</td>
                                 <td>{{contact.name}}</td>
                                 <td>{{contact.email}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-success btn-sm"  @click="launchModal">
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            @click="launchModal(contact.id)">
                                         View Message
                                     </button>
                                 </td>
@@ -42,11 +43,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h4 class="align-content-sm-center">{{this.actualcontact.message}}</h4>
+                        <h4 class="align-content-sm-center">{{this.actualContact.message}}</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <a  target="_top">
+                        <a :href="'mailto:' + actualContact.email" target="_top">
                             <button type="button" class="btn btn-primary">Reply</button>
                         </a>
                     </div>
@@ -59,19 +60,19 @@
 <script>
     export default {
         name: "Messages",
-        data () {
+        data() {
 
-            return{
+            return {
                 contact: {},
-                actualcontact:'',
+                actualContact: '',
             }
         },
         methods: {
             launchModal(contactId) {
-                axios.get('api/contact/' + contactId).then(({data}) => ([this.actualcontact = data]));
+                axios.get('api/contact/' + contactId).then(({data}) => ([this.actualContact = data]));
                 $('#messageModal').modal('show');
             },
-            loadContact(){
+            loadContact() {
                 axios.get("api/contact").then(({data}) => (this.contact = data));
             },
         },

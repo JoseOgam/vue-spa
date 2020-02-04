@@ -2345,12 +2345,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Messages",
   data: function data() {
     return {
       contact: {},
-      actualcontact: ''
+      actualContact: ''
     };
   },
   methods: {
@@ -2359,7 +2360,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('api/contact/' + contactId).then(function (_ref) {
         var data = _ref.data;
-        return [_this.actualcontact = data];
+        return [_this.actualContact = data];
       });
       $('#messageModal').modal('show');
     },
@@ -42711,7 +42712,11 @@ var render = function() {
                         {
                           staticClass: "btn btn-success btn-sm",
                           attrs: { type: "button" },
-                          on: { click: _vm.launchModal }
+                          on: {
+                            click: function($event) {
+                              return _vm.launchModal(contact.id)
+                            }
+                          }
                         },
                         [
                           _vm._v(
@@ -42755,11 +42760,40 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("h4", { staticClass: "align-content-sm-center" }, [
-                  _vm._v(_vm._s(this.actualcontact.message))
+                  _vm._v(_vm._s(this.actualContact.message))
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "mailto:" + _vm.actualContact.email,
+                      target: "_top"
+                    }
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("Reply")]
+                    )
+                  ]
+                )
+              ])
             ])
           ]
         )
@@ -42805,29 +42839,6 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c("a", { attrs: { target: "_top" } }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("Reply")]
-        )
-      ])
     ])
   }
 ]
