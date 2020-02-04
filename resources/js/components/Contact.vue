@@ -21,7 +21,7 @@
         <!-- /page title -->
 
         <!-- contact -->
-        <section class="section section-on-footer"  data-background ="images/backgrounds/bg-dots.png">
+        <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -30,24 +30,36 @@
                     <div class="col-lg-8 mx-auto">
                         <div class="bg-white rounded text-center p-5 shadow-down">
                             <h4 class="mb-80">Contact Form</h4>
-                            <form action="#" class="row">
-                                <div class="col-md-6">
-                                    <input type="text" id="name" name="name" placeholder="Full Name"
-                                           class="form-control px-0 mb-4">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" id="email" name="email" placeholder="Email Address"
-                                           class="form-control px-0 mb-4">
-                                </div>
-                                <div class="col-12">
-                                <textarea name="message" id="message" class="form-control px-0 mb-4"
-                                          placeholder="Type Message Here">
+                            <form @submit.prevent="sendMessage" class="row">
 
+                                <div class="col-md-6">
+                                    <has-error :form="form" field="email"></has-error>
+                                    <input v-model="form.name" type="text" name="name" placeholder="Full Name"
+                                           class="form-control px-0 mb-4"
+                                           :class="{ 'is-invalid': form.errors.has('name') }">
+                                    <has-error :form="form" field="name"></has-error>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input v-model="form.email" type="email" name="email" placeholder="Email Address"
+                                           class="form-control px-0 mb-4"
+                                           :class="{ 'is-invalid': form.errors.has('email') }">
+                                    <has-error :form="form" field="email"></has-error>
+                                </div>
+
+                                <div class="col-12">
+                                <textarea v-model="form.message" type="text" name="message"
+                                          class="form-control px-0 mb-4"
+                                          :class="{ 'is-invalid': form.errors.has('message') }"
+                                          placeholder="Type Message Here" style="resize: none">
+                                       <has-error :form="form" field="message"></has-error>
                                 </textarea>
                                 </div>
+
                                 <div class="col-lg-6 col-10 mx-auto">
-                                    <button class="btn btn-primary w-100">send</button>
+                                    <button type="submit" class="btn btn-primary w-100">send</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -60,6 +72,38 @@
 
 <script>
     export default {
+        data() {
+            return {
+                // Create a new form instance
+                form: new Form({
+                    name: '',
+                    email: '',
+                    message: ''
+                })
+            }
+        },
+        methods: {
+            sendMessage() {
+                this.$Progress.start();
+                this.form.post('api/contact')
+                    .then(() => {
+                        //sweetalert2 toast
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Thanks for contacting me'
+                        });
+                        this.form.reset();
+
+                        this.$Progress.finish();
+
+                    })
+                    .catch(() => {
+
+                    })
+
+            }
+
+        },
         mounted() {
             console.log('Component mounted.')
         }

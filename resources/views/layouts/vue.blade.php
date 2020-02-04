@@ -56,6 +56,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{(route('contact.index'))}}">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Admin</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -66,6 +69,7 @@
     <main class="py-4">
         @yield('content')
         <router-view></router-view>
+        <vue-progress-bar></vue-progress-bar>
     </main>
 </div>
 
@@ -76,7 +80,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <h5 class="text-light">Email</h5>
-                    <p class="text-white paragraph-lg font-secondary">fruits@emai</p>
+                    <p class="text-white paragraph-lg font-secondary">jose@legit.co.ke</p>
                 </div>
                 <div class="col-md-4">
                     <h5 class="text-light">Phone</h5>
@@ -84,7 +88,7 @@
                 </div>
                 <div class="col-md-4">
                     <h5 class="text-light">Address</h5>
-                    <p class="text-white paragraph-lg font-secondary">Kisumu Town Area, Kisumu County, Kenya</p>
+                    <p class="text-white paragraph-lg font-secondary">Kisumu Town Area, Kenya</p>
                 </div>
             </div>
         </div>

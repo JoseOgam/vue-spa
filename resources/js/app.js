@@ -8,6 +8,56 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+/**
+ * vform
+ */
+import { Form, HasError, AlertError } from 'vform'
+
+/**
+ * global component
+ */
+window.Form = Form;
+Vue.component(HasError.name, HasError);
+Vue.component(AlertError.name, AlertError);
+
+/**
+ * progressbar
+ */
+import VueProgressBar from 'vue-progressbar'
+
+const options = {
+    color: '#ffed4a',
+    failedColor: '#874b4b',
+    thickness: '5px',
+    transition: {
+        speed: '0.2s',
+        opacity: '0.6s',
+        termination: 300
+    },
+    autoRevert: true,
+    location: 'top',
+    inverse: false
+};
+
+Vue.use(VueProgressBar, options);
+
+/**
+ * sweetalert2
+ */
+import Swal from 'sweetalert2'
+window.Swal =Swal;
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-right',
+    showConfirmButton: false,
+    timer: 1000,
+    timerProgressBar: true,
+});
+
+window.Toast = Toast;
+
+
 /**vue router section */
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
@@ -16,9 +66,9 @@ const routes = [
     {path: '/index', component: require('./components/Index.vue').default},
     {path: '/about', component: require('./components/About.vue').default},
     {path: '/portfolio', component: require('./components/Portfolio.vue').default},
-    {path: '/services', component: require('./components/Services.vue').default},
-    {path: '/products', component: require('./components/Products.vue').default},
     {path: '/contact', component: require('./components/Contact.vue').default},
+    {path: '/messages', component: require('./components/Messages.vue').default},
+    {path: '/dashboard', component: require('./components/Dashboard.vue').default},
 ];
 
 const router = new VueRouter({
@@ -42,6 +92,7 @@ Vue.component('index', require('./components/Index.vue').default);
 Vue.component('about', require('./components/About.vue').default);
 Vue.component('portfolio', require('./components/Portfolio.vue').default);
 
+window.Fire = new Vue();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
