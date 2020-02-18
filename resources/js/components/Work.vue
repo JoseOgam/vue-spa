@@ -22,11 +22,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
+                        <tr v-for="work in works" :key="work.id">
+                            <td>{{work.id}}</td>
+                            <td>{{work.title}}</td>
+                            <td>{{work.image}}</td>
+                            <td>{{work.url}}</td>
                             <td>
                                 <a href="#">
                                     <i class="fas fa-edit blue"></i>
@@ -64,10 +64,10 @@
                                 </div>
                                 <div class="form-group">
 
-                                        <input  type="text"  v-model="form.image" name="image"
-                                                placeholder="Image"
-                                                class="form-control" :class="{ 'is-invalid': form.errors.has('image') }">
-                                        <has-error :form="form" field="image"></has-error>
+                                    <input type="text" v-model="form.image" name="image"
+                                           placeholder="Image"
+                                           class="form-control" :class="{ 'is-invalid': form.errors.has('image') }">
+                                    <has-error :form="form" field="image"></has-error>
                                 </div>
                                 <div class="form-group">
                                     <input v-model="form.url" type="text" name="url"
@@ -95,6 +95,7 @@
 
         data() {
             return {
+                works: {},
                 form: new Form({
                     title: '',
                     image: '',
@@ -110,11 +111,28 @@
 
             postWork() {
                 this.form.post('api/work')
+                    .then(() => {
+                        Fire.$emit('AfterCreate');
+                        this.form.reset();
+                        $('#postModal').modal('hide');
+                    })
+                    .catch(() => {
+
+                    });
+
+            },
+            loadWorks() {
+                axios.get("api/work").then(({data}) => (this.works = data.data));
             }
         },
 
         created() {
-            this.postWork();
+            this.loadWorks();
+            Fire.$on('AfterCreate', () => {
+                this.loadWorks();
+            });
+           // setInterval(() => this.loadWorks(), 1000);
+
         }
     }
 </script>

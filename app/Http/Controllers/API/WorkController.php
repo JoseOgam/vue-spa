@@ -15,7 +15,7 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        return Work::latest()->paginate(10);
     }
 
     /**
