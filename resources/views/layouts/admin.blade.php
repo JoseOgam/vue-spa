@@ -36,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </ul>
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control form-control-navbar" v-model="search" type="search" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                         <i class="fas fa-search"></i>
@@ -65,7 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="#" class="brand-link">
             <img src="{{('img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">LEGIT</span>
+            <span class="brand-text font-weight-light">.</span>
         </a>
 
         <!-- Sidebar -->
@@ -108,10 +108,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link ">
+                                <router-link to="work" class="nav-link ">
                                     <i class="nav-icon fas fa-briefcase purple"></i>
                                     <p>portfolio</p>
-                                </a>
+                                </router-link>
                             </li>
                             <li class="nav-item">
                                 <router-link to="/messages" class="nav-link ">

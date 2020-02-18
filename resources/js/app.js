@@ -69,6 +69,8 @@ const routes = [
     {path: '/contact', component: require('./components/Contact.vue').default},
     {path: '/messages', component: require('./components/Messages.vue').default},
     {path: '/dashboard', component: require('./components/Dashboard.vue').default},
+    {path: '/work', component: require('./components/Work.vue').default},
+    {path: '/users', component: require('./components/Users.vue').default},
 ];
 
 const router = new VueRouter({
@@ -102,5 +104,9 @@ window.Fire = new Vue();
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+
+    data: {
+        search: '',
+    }
 });

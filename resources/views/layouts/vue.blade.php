@@ -36,7 +36,7 @@
 <body>
 <header class="navigation fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand font-tertiary h3" href="index.html">Legit.</a>
+        <a class="navbar-brand font-tertiary h3" href="index.html"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                 aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
                     <a class="nav-link" href="{{(route('contact.index'))}}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Admin</a>
+                    <a class="nav-link" href="#">Resume</a>
                 </li>
             </ul>
         </div>

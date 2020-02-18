@@ -19,3 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResources(['contact' => 'API\ContactController']);
 
+Route::apiResources(['messages' => 'API\MessagesController']);
+
+Route::apiResources(['work' => 'API\WorkController']);
+
+Route::apiResources(['users' => 'API\UsersController']);
+

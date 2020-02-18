@@ -2,61 +2,49 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Contact;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class UsersController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
-     * @return
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
+        return User::latest()->paginate(20);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param
-     * @return
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:255',
-            'message' => 'required|string|max:255'
-        ]);
-        return Contact::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'message' => $request['message'],
-
-        ]);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @param $contactId
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($contactId)
+    public function show($id)
     {
-        return Contact::where('id', $contactId)->first();
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -67,7 +55,7 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

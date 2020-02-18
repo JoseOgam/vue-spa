@@ -69,11 +69,11 @@
         },
         methods: {
             launchModal(contactId) {
-                axios.get('api/contact/' + contactId).then(({data}) => ([this.actualContact = data]));
+                axios.get('api/messages/' + contactId).then(({data}) => ([this.actualContact = data]));
                 $('#messageModal').modal('show');
             },
             loadContact() {
-                axios.get("api/contact").then(({data}) => (this.contact = data));
+                axios.get("api/messages").then(({data}) => (this.contact = data));
             },
         },
         created() {

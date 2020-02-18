@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c9b64d2b-2810-4386-94fe-784825160aec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/MessagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/MessagesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Messages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Messages.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/vue.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/vue.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +199,10 @@
       <workItem from="1580701135476" duration="2691000" />
       <workItem from="1580728555149" duration="4721000" />
       <workItem from="1580791702909" duration="6485000" />
-      <workItem from="1580822553876" duration="3541000" />
+      <workItem from="1580822553876" duration="6740000" />
+      <workItem from="1580885279891" duration="8413000" />
+      <workItem from="1580996550148" duration="6266000" />
+      <workItem from="1582020226940" duration="1233000" />
     </task>
     <servers />
   </component>
@@ -213,9 +222,9 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="503" y="325" width="349" height="151" key="NewPhpFileDialog/0.30.1366.738@0.30.1366.738" timestamp="1580645676108" />
-    <state x="376" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1580791903541">
+    <state x="376" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1582020225223">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="376" y="226" key="com.intellij.ide.util.TipDialog/0.30.1366.738@0.30.1366.738" timestamp="1580791903541" />
+    <state x="376" y="226" key="com.intellij.ide.util.TipDialog/0.30.1366.738@0.30.1366.738" timestamp="1582020225223" />
   </component>
 </project>

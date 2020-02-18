@@ -35,9 +35,9 @@ class MessagesController extends Controller
      * @param $messageId
      * @return \Illuminate\Http\Response
      */
-    public function show($messageId)
+    public function show($contactId)
     {
-        return Contact::where('id',  $messageId)->first();
+        return Contact::where('id',  $contactId)->first();
     }
 
     /**
