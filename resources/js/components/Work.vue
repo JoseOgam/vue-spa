@@ -55,19 +55,19 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form @submit.prevent="postWork">
                                 <div class="form-group">
                                     <input v-model="form.title" type="text" name="title"
                                            placeholder="Project Title"
                                            class="form-control" :class="{ 'is-invalid': form.errors.has('title') }">
                                     <has-error :form="form" field="title"></has-error>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-10">
-                                        <input  type="file"  name="image"
+                                <div class="form-group">
+
+                                        <input  type="text"  v-model="form.image" name="image"
+                                                placeholder="Image"
                                                 class="form-control" :class="{ 'is-invalid': form.errors.has('image') }">
                                         <has-error :form="form" field="image"></has-error>
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <input v-model="form.url" type="text" name="url"
@@ -95,7 +95,11 @@
 
         data() {
             return {
-                form: new Form({})
+                form: new Form({
+                    title: '',
+                    image: '',
+                    url: '',
+                })
 
             }
         },

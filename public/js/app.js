@@ -2679,7 +2679,11 @@ __webpack_require__.r(__webpack_exports__);
   name: "Work",
   data: function data() {
     return {
-      form: new Form({})
+      form: new Form({
+        title: '',
+        image: '',
+        url: ''
+      })
     };
   },
   methods: {
@@ -43505,56 +43509,88 @@ var render = function() {
                 _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("form", [
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.title,
-                              expression: "form.title"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.form.errors.has("title") },
-                          attrs: {
-                            type: "text",
-                            name: "title",
-                            placeholder: "Project Title"
-                          },
-                          domProps: { value: _vm.form.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "title", $event.target.value)
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "title" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.postWork($event)
+                        }
+                      }
+                    },
+                    [
                       _c(
                         "div",
-                        { staticClass: "col-sm-10" },
+                        { staticClass: "form-group" },
                         [
                           _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.title,
+                                expression: "form.title"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("title")
+                            },
+                            attrs: {
+                              type: "text",
+                              name: "title",
+                              placeholder: "Project Title"
+                            },
+                            domProps: { value: _vm.form.title },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "title", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "title" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.image,
+                                expression: "form.image"
+                              }
+                            ],
                             staticClass: "form-control",
                             class: {
                               "is-invalid": _vm.form.errors.has("image")
                             },
-                            attrs: { type: "file", name: "image" }
+                            attrs: {
+                              type: "text",
+                              name: "image",
+                              placeholder: "Image"
+                            },
+                            domProps: { value: _vm.form.image },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "image", $event.target.value)
+                              }
+                            }
                           }),
                           _vm._v(" "),
                           _c("has-error", {
@@ -43562,49 +43598,49 @@ var render = function() {
                           })
                         ],
                         1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.url,
-                              expression: "form.url"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.form.errors.has("url") },
-                          attrs: {
-                            type: "text",
-                            name: "url",
-                            placeholder: "Project Url"
-                          },
-                          domProps: { value: _vm.form.url },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.url,
+                                expression: "form.url"
                               }
-                              _vm.$set(_vm.form, "url", $event.target.value)
+                            ],
+                            staticClass: "form-control",
+                            class: { "is-invalid": _vm.form.errors.has("url") },
+                            attrs: {
+                              type: "text",
+                              name: "url",
+                              placeholder: "Project Url"
+                            },
+                            domProps: { value: _vm.form.url },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "url", $event.target.value)
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "url" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ])
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "url" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ]
+                  )
                 ])
               ])
             ]
