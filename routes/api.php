@@ -25,3 +25,5 @@ Route::apiResources(['work' => 'API\WorkController']);
 
 Route::apiResources(['users' => 'API\UsersController']);
 
+Route::apiResources(['dashboard' => 'API\DashboardController']);
+

@@ -119,24 +119,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <p>messages</p>
                                 </router-link>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link ">
-                                    <i class="nav-icon fas fa-graduation-cap yellow"></i>
-                                    <p>careers</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link ">
-                                    <i class="nav-icon fas fa-clipboard-check pink"></i>
-                                    <p>clients</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link ">
-                                    <i class="nav-icon fas fa-envelope teal"></i>
-                                    <p>classifieds</p>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">

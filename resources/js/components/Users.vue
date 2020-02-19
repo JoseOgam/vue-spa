@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Users Table</h3>
                         <div class="card-tools">
-                            <button @click="launchModal" class="btn btn-success">add New <i
+                            <button @click="addModal" class="btn btn-success">add New <i
                                 class="fas fa-user-plus"></i></button>
                         </div>
                     </div>
@@ -25,10 +25,10 @@
                                 <td>{{user.id}}</td>
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
-                                <td>Admin</td>
+                                <td>{{user.type}}</td>
                                 <td>5/02/2020</td>
                                 <td>
-                                    <a href="#">
+                                    <a href="#" @click="updateModal(user)">
                                         <i class="fas fa-edit blue"></i>
                                     </a>/
                                     <a href="#" @click="deleteUser(user.id)">
@@ -122,6 +122,15 @@
             }
         },
         methods: {
+            addModal() {
+                this.form.reset();
+                $('#addNew').modal('show');
+            },
+            updateModal(users) {
+                this.form.reset();
+                $('#addNew').modal('show');
+                this.form.fill(users);
+            },
             //delete user function
             deleteUser(id) {
                 Swal.fire({
@@ -134,20 +143,20 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     //send request to the server
-
+                    if (result.value) {
                     this.form.delete('api/users/' + id).then(() => {
-                        if (result.value) {
+
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
-                            )
-                        }
+                            );
                         Fire.$emit('AfterCreate');
+
                     }).catch(() => {
                         swal("Failed", "There was something wrong", "warning");
-                    })
-
+                    });
+            }
                 })
             },
             launchModal() {
