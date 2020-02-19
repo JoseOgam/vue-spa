@@ -60,10 +60,12 @@ class WorkController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function destroy($id)
     {
-        //
+        $work = Work::findOrFail($id);
+
+        $work->delete();
     }
 }

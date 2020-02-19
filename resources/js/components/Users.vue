@@ -122,47 +122,47 @@
             }
         },
         methods: {
+            //delete user function
             deleteUser(id) {
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
-                    type: 'warning',
+                    icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
-                    // send request to the server
-                    if (result.value) {
-                        this.form.delete('api/user/' + id)
-                            .then(() => {
+                    //send request to the server
 
-                                if (result.value) {
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'User has been deleted.',
-                                        'success'
-                                    );
-                                    Fire.$emit('AfterCreate');
-                                }
-                            })
-                            .catch(() => {
-                                swal("Failed", "There was something wrong", "warning");
-                            });
-                    }
+                    this.form.delete('api/users/' + id).then(() => {
+                        if (result.value) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                        Fire.$emit('AfterCreate');
+                    }).catch(() => {
+                        swal("Failed", "There was something wrong", "warning");
+                    })
+
                 })
             },
             launchModal() {
                 $('#addNew').modal('show');
             },
+
             createUser() {
                 this.form.post('api/users')
                     .then(() => {
                         $('#addNew').modal('hide');
                         Fire.$emit('AfterCreate');
+                        this.form.reset();
                     })
                     .catch(() => {
-
+                        swal("Failed", "There was something wrong", "warning");
                     })
 
             },

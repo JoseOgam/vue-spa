@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/WorkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/WorkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Users.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Work.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Work.vue" afterDir="false" />
@@ -200,7 +199,8 @@
       <workItem from="1580822553876" duration="6740000" />
       <workItem from="1580885279891" duration="8413000" />
       <workItem from="1580996550148" duration="6266000" />
-      <workItem from="1582020226940" duration="18316000" />
+      <workItem from="1582020226940" duration="18845000" />
+      <workItem from="1582086151484" duration="5721000" />
     </task>
     <servers />
   </component>
@@ -228,9 +228,9 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="503" y="325" width="349" height="151" key="NewPhpFileDialog/0.30.1366.738@0.30.1366.738" timestamp="1580645676108" />
-    <state x="376" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1582020225223">
+    <state x="376" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1582086151440">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="376" y="226" key="com.intellij.ide.util.TipDialog/0.30.1366.738@0.30.1366.738" timestamp="1582020225223" />
+    <state x="376" y="226" key="com.intellij.ide.util.TipDialog/0.30.1366.738@0.30.1366.738" timestamp="1582086151440" />
   </component>
 </project>

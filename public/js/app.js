@@ -2617,55 +2617,61 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //delete user function
     deleteUser: function deleteUser(id) {
       var _this = this;
 
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
-        type: 'warning',
+        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
-        // send request to the server
-        if (result.value) {
-          _this.form["delete"]('api/user/' + id).then(function () {
-            if (result.value) {
-              Swal.fire('Deleted!', 'User has been deleted.', 'success');
-              Fire.$emit('AfterCreate');
-            }
-          })["catch"](function () {
-            swal("Failed", "There was something wrong", "warning");
-          });
-        }
+        //send request to the server
+        _this.form["delete"]('api/users/' + id).then(function () {
+          if (result.value) {
+            Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          }
+
+          Fire.$emit('AfterCreate');
+        })["catch"](function () {
+          swal("Failed", "There was something wrong", "warning");
+        });
       });
     },
     launchModal: function launchModal() {
       $('#addNew').modal('show');
     },
     createUser: function createUser() {
+      var _this2 = this;
+
       this.form.post('api/users').then(function () {
         $('#addNew').modal('hide');
         Fire.$emit('AfterCreate');
-      })["catch"](function () {});
+
+        _this2.form.reset();
+      })["catch"](function () {
+        swal("Failed", "There was something wrong", "warning");
+      });
     },
     loadUsers: function loadUsers() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("api/users").then(function (_ref) {
         var data = _ref.data;
-        return [_this2.users = data.data];
+        return [_this3.users = data.data];
       });
     }
   },
   created: function created() {
-    var _this3 = this;
+    var _this4 = this;
 
     this.loadUsers();
     Fire.$on('AfterCreate', function () {
-      _this3.loadUsers();
+      _this4.loadUsers();
     });
   }
 });
@@ -2785,35 +2791,57 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //deleting portfolio function
+    deleteWork: function deleteWork(id) {
+      var _this = this;
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        //sending delete request to the server
+        _this.form["delete"]('api/work/' + id).then(function () {
+          if (result.value) {
+            Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+            Fire.$emit('AfterCreate');
+          }
+        })["catch"](function () {});
+      });
+    },
     launchModal: function launchModal() {
       $('#postModal').modal('show');
     },
     postWork: function postWork() {
-      var _this = this;
+      var _this2 = this;
 
       this.form.post('api/work').then(function () {
         Fire.$emit('AfterCreate');
 
-        _this.form.reset();
+        _this2.form.reset();
 
         $('#postModal').modal('hide');
       })["catch"](function () {});
     },
     loadWorks: function loadWorks() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get("api/work").then(function (_ref) {
         var data = _ref.data;
-        return _this2.works = data.data;
+        return _this3.works = data.data;
       });
     }
   },
   created: function created() {
-    var _this3 = this;
+    var _this4 = this;
 
     this.loadWorks();
     Fire.$on('AfterCreate', function () {
-      _this3.loadWorks();
+      _this4.loadWorks();
     }); // setInterval(() => this.loadWorks(), 1000);
   }
 });
@@ -43943,7 +43971,22 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(work.url))]),
                   _vm._v(" "),
-                  _vm._m(1, true)
+                  _c("td", [
+                    _vm._m(1, true),
+                    _vm._v("/\n                            "),
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteWork(work.id)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-trash red" })]
+                    )
+                  ])
                 ])
               }),
               0
@@ -44140,14 +44183,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fas fa-edit blue" })
-      ]),
-      _vm._v("/\n                            "),
-      _c("a", { attrs: { href: "#" } }, [
-        _c("i", { staticClass: "fas fa-trash red" })
-      ])
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fas fa-edit blue" })
     ])
   },
   function() {

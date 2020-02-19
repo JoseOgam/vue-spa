@@ -31,7 +31,7 @@
                                 <a href="#">
                                     <i class="fas fa-edit blue"></i>
                                 </a>/
-                                <a href="#">
+                                <a href="#" @click="deleteWork(work.id)">
                                     <i class="fas fa-trash red"></i>
                                 </a>
 
@@ -105,6 +105,33 @@
             }
         },
         methods: {
+            //deleting portfolio function
+            deleteWork(id) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    //sending delete request to the server
+                    this.form.delete('api/work/' + id).then(() => {
+                        if (result.value) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            Fire.$emit('AfterCreate');
+                        }
+                    }).catch(() => {
+
+                    })
+
+                })
+            },
             launchModal() {
                 $('#postModal').modal('show');
             },
@@ -131,7 +158,7 @@
             Fire.$on('AfterCreate', () => {
                 this.loadWorks();
             });
-           // setInterval(() => this.loadWorks(), 1000);
+            // setInterval(() => this.loadWorks(), 1000);
 
         }
     }
