@@ -26,7 +26,7 @@
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
                                 <td>{{user.type}}</td>
-                                <td>5/02/2020</td>
+                                <td>{{user.created_at}}</td>
                                 <td>
                                     <a href="#" @click="updateModal(user)">
                                         <i class="fas fa-edit blue"></i>
@@ -49,13 +49,14 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add New</h5>
+                        <h5 v-show="!editmode" class="modal-title" id="exampleModalLabel">Add New User</h5>
+                        <h5 v-show="editmode" class="modal-title" id="">Update User's Info!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form @submit.prevent="createUser">
+                        <form @submit.prevent=" editmode? updateUser() : createUser()">
                             <div class="form-group">
                                 <input v-model="form.name" type="text" name="name"
                                        placeholder="Name"
@@ -94,7 +95,8 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button v-show="editmode" type="submit" class="btn btn-success">Update</button>
+                                <button v-show="!editmode" type="submit" class="btn btn-primary">Create</button>
                             </div>
                         </form>
                     </div>
@@ -108,7 +110,10 @@
     export default {
         name: "Users",
         data() {
+
             return {
+
+                editmode: false,
                 users: {},
                 form: new Form({
                     id: '',
@@ -122,11 +127,30 @@
             }
         },
         methods: {
+            //update user function
+            updateUser() {
+                //console.log('editing data');
+                this.$Progress.start();
+                this.form.put('api/users/' + this.form.id)
+                    .then(() => {
+                        //success
+                        $('#addNew').modal('hide');
+                        Fire.$emit('AfterCreate');
+                    })
+                    .catch(() => {
+                        this.$Progress.fail();
+                    });
+            },
+             //launch addNew modal
             addModal() {
+                this.editmode = false;
                 this.form.reset();
                 $('#addNew').modal('show');
             },
+
+            //launch update user modal
             updateModal(users) {
+                this.editmode = true;
                 this.form.reset();
                 $('#addNew').modal('show');
                 this.form.fill(users);
@@ -144,25 +168,26 @@
                 }).then((result) => {
                     //send request to the server
                     if (result.value) {
-                    this.form.delete('api/users/' + id).then(() => {
+                        this.form.delete('api/users/' + id).then(() => {
 
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
                             );
-                        Fire.$emit('AfterCreate');
+                            Fire.$emit('AfterCreate');
 
-                    }).catch(() => {
-                        swal("Failed", "There was something wrong", "warning");
-                    });
-            }
+                        }).catch(() => {
+                            swal("Failed", "There was something wrong", "warning");
+                        });
+                    }
                 })
             },
             launchModal() {
                 $('#addNew').modal('show');
             },
 
+            //create user function
             createUser() {
                 this.form.post('api/users')
                     .then(() => {
@@ -175,10 +200,13 @@
                     })
 
             },
+
+            //laod user function
             loadUsers() {
                 axios.get("api/users").then(({data}) => ([this.users = data.data]));
             }
         },
+
         created() {
             this.loadUsers();
             Fire.$on('AfterCreate', () => {

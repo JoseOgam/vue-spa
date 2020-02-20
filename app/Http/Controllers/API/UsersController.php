@@ -16,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return User::latest()->paginate(20);
+        return User::latest()->paginate(10);
     }
 
     /**
@@ -59,11 +59,23 @@ class UsersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $user = User::findOrFail($id);
+
+
+        $this->validate($request, [
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,' . $user->id,
+            'password' => 'sometimes|max:6',
+        ]);
+
+        $user->update($request->all());
+
+        return ['message' => 'update user info!'];
     }
 
     /**

@@ -49,11 +49,17 @@ class WorkController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $work = Work::findOrFail($id);
+
+        $work->update($request->all());
+
+
+        return ['message' => 'portfolio updated'];
     }
 
     /**
