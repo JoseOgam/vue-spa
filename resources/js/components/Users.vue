@@ -136,6 +136,13 @@
                         //success
                         $('#addNew').modal('hide');
                         Fire.$emit('AfterCreate');
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'changes saved successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                     })
                     .catch(() => {
                         this.$Progress.fail();

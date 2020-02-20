@@ -71,6 +71,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {path: '/index', component: require('./components/Index.vue').default},
+    {path: '/developer', component: require('./components/Developer.vue').default},
     {path: '/about', component: require('./components/About.vue').default},
     {path: '/portfolio', component: require('./components/Portfolio.vue').default},
     {path: '/contact', component: require('./components/Contact.vue').default},
@@ -100,6 +101,21 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('index', require('./components/Index.vue').default);
 Vue.component('about', require('./components/About.vue').default);
 Vue.component('portfolio', require('./components/Portfolio.vue').default);
+
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue').default
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue').default
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue').default
+);
 
 window.Fire = new Vue();
 
