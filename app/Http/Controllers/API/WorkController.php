@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class WorkController extends Controller
 {
+//construct function that protect other functions from unauthorized users
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +27,7 @@ class WorkController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return
      */
     public function store(Request $request)
@@ -36,7 +42,7 @@ class WorkController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -47,8 +53,8 @@ class WorkController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return
      */
     public function update(Request $request, $id)
@@ -65,7 +71,7 @@ class WorkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return
      */
     public function destroy($id)

@@ -71,6 +71,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {path: '/index', component: require('./components/Index.vue').default},
+    {path: '/profile', component: require('./components/Profile.vue').default},
     {path: '/developer', component: require('./components/Developer.vue').default},
     {path: '/about', component: require('./components/About.vue').default},
     {path: '/portfolio', component: require('./components/Portfolio.vue').default},

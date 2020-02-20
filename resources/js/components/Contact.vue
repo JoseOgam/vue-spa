@@ -21,7 +21,7 @@
         <!-- /page title -->
 
         <!-- contact -->
-        <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
+        <section class="section section-on-footer" style="background-image:url('images/backgrounds/bg-dots.png')">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
