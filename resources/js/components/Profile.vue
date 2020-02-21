@@ -41,85 +41,125 @@
                         <!-- /.row -->
                     </div>
                 </div>
-                    <div class="card">
-                        <div class="card-header p-2">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a>
-                                </li>
-                            </ul>
-                        </div><!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="tab-content">
-                                <div class="tab-pane" id="activity">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#activity"
+                                                    data-toggle="tab">Activity</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a>
+                            </li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane" id="activity">
 
-
-                                </div>
-                                <!-- /.tab-pane -->
-
-                                <!-- /.tab-pane -->
-
-                                <div class="tab-pane" id="settings">
-                                    <form class="form-horizontal">
-                                        <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName"
-                                                       placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail"
-                                                       placeholder="Email">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="inputExperience"
-                                                   class="col-sm-2 col-form-label">Experience</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" id="inputExperience"
-                                                          placeholder="Experience"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Profile Photo</label>
-                                            <div class="col-sm-10">
-                                                <input type="file"  name="photo"
-                                                       class="form-input">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputSkills" class="col-sm-2 col-form-label">Passport</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills"
-                                                       placeholder="Passport">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-success">Update</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- /.tab-pane -->
+                                <h1>Display User's Activity</h1>
                             </div>
-                            <!-- /.tab-content -->
-                        </div><!-- /.card-body -->
-                    </div>
-                    <!-- /.nav-tabs-custom -->
+                            <!-- /.tab-pane -->
+
+                            <!-- /.tab-pane -->
+
+                            <div class="tab-pane" id="settings">
+                                <form class="form-horizontal">
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" v-model="form.name" class="form-control" id="inputName"
+                                                   placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" v-model="form.email" class="form-control" id="inputEmail"
+                                                   placeholder="Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputExperience"
+                                               class="col-sm-2 col-form-label">Experience</label>
+                                        <div class="col-sm-10">
+                                                <textarea class="form-control" v-model="form.bio" id="inputExperience"
+                                                          placeholder="Experience"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Profile Photo</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" @change="updateProfile" name="photo"
+                                                   class="form-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputSkills" class="col-sm-2 col-form-label">Passport</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputSkills"
+                                                   placeholder="Passport">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="offset-sm-2 col-sm-10">
+                                            <button @click.prevent="updateInfo" type="submit" class="btn btn-success">Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
                 </div>
+                <!-- /.nav-tabs-custom -->
             </div>
         </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "Profile"
+        name: "Profile",
+
+        data() {
+            return {
+                form: new Form({
+                    id: '',
+                    name: '',
+                    email: '',
+                    bio: '',
+                    type: '',
+                    password: '',
+                    photo: ''
+                })
+            }
+        },
+        methods: {
+            updateInfo() {
+                this.form.put('api/profile')
+                    .then(() => {
+
+                    })
+                    .catch(() => {
+
+                    });
+            },
+            updateProfile(e) {
+                let file = e.target.files[0];
+                //console.log(file);
+                let reader = new FileReader();
+                reader.onloadend = (file) => {
+                    //console.log('RESULT', reader.result)
+                    this.form.photo = reader.result;
+                };
+                reader.readAsDataURL(file);
+
+            }
+        },
+        created() {
+            axios.get('api/profile').then(({data}) => (this.form.fill(data)));
+        }
     }
 </script>
 
