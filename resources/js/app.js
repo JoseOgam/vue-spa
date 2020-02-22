@@ -18,7 +18,7 @@ Vue.use(VueAnalytics, {
 /**
  * vform
  */
-import { Form, HasError, AlertError } from 'vform'
+import {Form, HasError, AlertError} from 'vform'
 
 /**
  * global component
@@ -32,6 +32,18 @@ Vue.component(AlertError.name, AlertError);
  */
 import VueProgressBar from 'vue-progressbar'
 
+/**
+ * gate class
+ */
+import Gate from "./gate";
+
+Vue.prototype.$gate = new Gate(window.user);
+
+
+/**
+ * Progressbar
+ * @type {{inverse: boolean, color: string, thickness: string, failedColor: string, autoRevert: boolean, location: string, transition: {termination: number, opacity: string, speed: string}}}
+ */
 const options = {
     color: '#ffed4a',
     failedColor: '#874b4b',
@@ -52,7 +64,8 @@ Vue.use(VueProgressBar, options);
  * sweetalert2
  */
 import Swal from 'sweetalert2'
-window.Swal =Swal;
+
+window.Swal = Swal;
 
 const Toast = Swal.mixin({
     toast: true,
@@ -67,6 +80,7 @@ window.Toast = Toast;
 
 /**vue router section */
 import VueRouter from 'vue-router'
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -102,6 +116,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('index', require('./components/Index.vue').default);
 Vue.component('about', require('./components/About.vue').default);
 Vue.component('portfolio', require('./components/Portfolio.vue').default);
+Vue.component('notFound', require('./components/NotFound.vue').default);
+
 
 Vue.component(
     'passport-clients',

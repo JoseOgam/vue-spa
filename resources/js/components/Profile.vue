@@ -9,7 +9,7 @@
                         <h5 class="widget-user-desc">Founder &amp; CEO</h5>
                     </div>
                     <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="images/profile.jpg" alt="User Avatar">
+                        <img class="img-circle elevation-2" :src="getProfilePhoto()" alt="User Avatar">
                     </div>
                     <div class="card-footer">
                         <div class="row">
@@ -136,13 +136,22 @@
             }
         },
         methods: {
+
+            getProfilePhoto() {
+
+                let photo = (this.form.photo.length > 100) ? this.form.photo : "img/profile/" + this.form.photo ;
+
+                return photo;
+
+            },
             updateInfo() {
+                this.$Progress.start();
                 this.form.put('api/profile')
                     .then(() => {
-
+                        this.$Progress.finish();
                     })
                     .catch(() => {
-
+                        this.$Progress.fail();
                     });
             },
             updateProfile(e) {

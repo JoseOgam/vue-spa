@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row" v-if="$gate.isAdmin()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -42,6 +42,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div v-if="!$gate.isAdmin()">
+            <not-found></not-found>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -148,7 +152,7 @@
                         this.$Progress.fail();
                     });
             },
-             //launch addNew modal
+            //launch addNew modal
             addModal() {
                 this.editmode = false;
                 this.form.reset();
@@ -208,9 +212,11 @@
 
             },
 
-            //laod user function
+            //load user function
             loadUsers() {
-                axios.get("api/users").then(({data}) => ([this.users = data.data]));
+                if (this.$gate.isAdmin()) {
+                    axios.get("api/users").then(({data}) => ([this.users = data.data]));
+                }
             }
         },
 
