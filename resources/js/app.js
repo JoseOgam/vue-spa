@@ -39,6 +39,10 @@ import Gate from "./gate";
 
 Vue.prototype.$gate = new Gate(window.user);
 
+/**
+ * Vue pagination
+ */
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 /**
  * Progressbar
@@ -94,6 +98,7 @@ const routes = [
     {path: '/dashboard', component: require('./components/Dashboard.vue').default},
     {path: '/work', component: require('./components/Work.vue').default},
     {path: '/users', component: require('./components/Users.vue').default},
+    {path: '*', component: require('./components/NotFound.vue').default},
 ];
 
 const router = new VueRouter({
@@ -148,5 +153,11 @@ const app = new Vue({
 
     data: {
         search: '',
+    },
+    methods: {
+        searchit: _.debounce(()=>{
+
+            Fire.$emit('searching');
+        }, 1000)
     }
 });

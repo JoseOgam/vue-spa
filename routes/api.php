@@ -29,4 +29,6 @@ Route::apiResources(['dashboard' => 'API\DashboardController']);
 
 Route::get('profile', 'API\UsersController@profile');
 
+Route::get('findUser', 'API\UsersController@search');
+
 Route::put('profile', 'API\UsersController@updateProfile');

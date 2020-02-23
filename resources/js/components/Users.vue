@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row" v-if="$gate.isAdmin()">
+        <div class="row" v-if="$gate.isAdminOrAuthor()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -21,7 +21,7 @@
                                 <th>Date Registered</th>
                                 <th>Modify</th>
                             </tr>
-                            <tr v-for="user in users" :key="user.id">
+                            <tr v-for="user in users.data" :key="user.id">
                                 <td>{{user.id}}</td>
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
@@ -41,10 +41,17 @@
                         </table>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <pagination :data="users"
+                                @pagination-change-page="getResults">
+                        <span slot="prev-nav">&lt; Previous</span>
+                        <span slot="next-nav">Next &gt;</span>
+                    </pagination>
+                </div>
             </div>
         </div>
 
-        <div v-if="!$gate.isAdmin()">
+        <div v-if="!$gate.isAdminOrAuthor()">
             <not-found></not-found>
         </div>
         <!-- Modal -->
@@ -131,6 +138,13 @@
             }
         },
         methods: {
+            //pagination function
+            getResults(page = 1) {
+                axios.get('api/users?page=' + page)
+                    .then(response => {
+                        this.users = response.data;
+                    });
+            },
             //update user function
             updateUser() {
                 //console.log('editing data');
@@ -205,6 +219,13 @@
                         $('#addNew').modal('hide');
                         Fire.$emit('AfterCreate');
                         this.form.reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User added successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                     })
                     .catch(() => {
                         swal("Failed", "There was something wrong", "warning");
@@ -214,13 +235,23 @@
 
             //load user function
             loadUsers() {
-                if (this.$gate.isAdmin()) {
-                    axios.get("api/users").then(({data}) => ([this.users = data.data]));
+                if (this.$gate.isAdminOrAuthor()) {
+                    axios.get("api/users").then(({data}) => ([this.users = data]));
                 }
             }
         },
 
         created() {
+            Fire.$on('searching', () => {
+                let query = this.$parent.search;
+                axios.get('api/findUser?q=' + query)
+                    .then((data) => {
+                        this.users = data.data
+                    })
+                    .catch(() => {
+
+                    })
+            });
             this.loadUsers();
             Fire.$on('AfterCreate', () => {
                 this.loadUsers();

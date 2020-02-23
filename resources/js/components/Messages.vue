@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row" v-if="$gate.isAdminOrAuthor()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Messages</div>
@@ -31,6 +31,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div v-if="!$gate.isAdminOrAuthor()">
+            <not-found></not-found>
         </div>
         <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
@@ -73,7 +76,9 @@
                 $('#messageModal').modal('show');
             },
             loadContact() {
-                axios.get("api/messages").then(({data}) => (this.contact = data));
+                if (this.$gate.isAdminOrAuthor()) {
+                    axios.get("api/messages").then(({data}) => (this.contact = data));
+                }
             },
         },
         created() {

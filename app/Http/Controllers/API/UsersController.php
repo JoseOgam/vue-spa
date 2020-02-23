@@ -21,8 +21,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $this->authorize('isAdmin');
-        return User::latest()->paginate(10);
+        if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
+            return User::latest()->paginate(5);
+        }
     }
 
     /**
@@ -66,14 +67,13 @@ class UsersController extends Controller
 
         $currentPhoto = $user->photo;
 
-        if ($request->photo  != $currentPhoto) {
+        if ($request->photo != $currentPhoto) {
 
             $name = time() . '.' . explode('/', explode(':', substr($request->photo, 0, strpos
                 ($request->photo, ';')))[1])[1];
 
             \Image::make($request->photo)->save(public_path('img/profile/') . $name);
             $request->merge(['photo' => $name]);
-
 
 
         }
@@ -112,6 +112,26 @@ class UsersController extends Controller
 
         return ['message' => 'update user info!'];
     }
+
+
+    /***
+     * the search function
+     */
+    public function search()
+    {
+        if ($search = \Request::get('q')) {
+            $users = User::where(function ($query) use ($search) {
+                $query->where('name', 'LIKE', "%$search%")
+                    ->orWhere('email', 'LIKE', "%$search%")
+                    ->orWhere('type', 'LIKE', "%$search%");
+            })->paginate(5);
+        } else {
+            $users = User::latest()->paginate(5);
+        }
+
+        return $users;
+    }
+
 
     /**
      * Remove the specified resource from storage.

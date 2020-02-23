@@ -5,8 +5,8 @@
                 <div class="card card-widget widget-user">
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Joseph Otieno</h3>
-                        <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+                        <h3 class="widget-user-username">{{this.form.name}}</h3>
+                        <h5 class="widget-user-desc">{{this.form.type}}</h5>
                     </div>
                     <div class="widget-user-image">
                         <img class="img-circle elevation-2" :src="getProfilePhoto()" alt="User Avatar">
@@ -15,24 +15,24 @@
                         <div class="row">
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
+                                    <h5 class="description-header">Email</h5>
+                                    <span class="description-text">{{this.form.email}}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
+                                    <h5 class="description-header">Bio</h5>
+                                    <span class="description-text">{{this.form.bio}}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-4">
                                 <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
+                                    <h5 class="description-header">Type</h5>
+                                    <span class="description-text">{{this.form.type}}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
