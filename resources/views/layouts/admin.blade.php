@@ -12,13 +12,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/ico" href="{{('images/devs/icon.png')}}"/>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <link rel="icon" type="image/ico" href="{{('img/favicon.png')}}"/>
 
     <link href="{{('/css/app.css')}}" rel="stylesheet">
 
@@ -63,9 +62,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
-            <img src="{{('img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <img src="{{('images/devs/icon.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">.</span>
+            <span class="brand-text font-weight-light">Portfolio</span>
         </a>
 
         <!-- Sidebar -->
@@ -73,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{('img/logo.png')}}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{('images/devs/icon.png')}}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block"> {{ Auth::user()->name }}</a>

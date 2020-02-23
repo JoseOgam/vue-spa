@@ -31,9 +31,11 @@
                     </div>
                 </div>
                 <div class="row shuffle-wrapper">
-                    <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
+                    <div class="col-lg-4 col-6 mb-4 shuffle-item"
+                         data-groups="[&quot;design&quot;,&quot;illustration&quot;]">
                         <div class="position-relative rounded hover-wrapper">
-                            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+                            <img src="images/portfolio/item-8.png" alt="portfolio-image"
+                                 class="img-fluid rounded w-100 d-block">
                             <div class="hover-overlay">
                                 <div class="hover-content">
                                     <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
@@ -43,7 +45,8 @@
                     </div>
                     <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]">
                         <div class="position-relative rounded hover-wrapper">
-                            <img src="images/portfolio/item-2.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+                            <img src="images/portfolio/item-2.png" alt="portfolio-image"
+                                 class="img-fluid rounded w-100 d-block">
                             <div class="hover-overlay">
                                 <div class="hover-content">
                                     <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
@@ -53,7 +56,8 @@
                     </div>
                     <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;illustration&quot;]">
                         <div class="position-relative rounded hover-wrapper">
-                            <img src="images/portfolio/item-3.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+                            <img src="images/portfolio/item-3.png" alt="portfolio-image"
+                                 class="img-fluid rounded w-100 d-block">
                             <div class="hover-overlay">
                                 <div class="hover-content">
                                     <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
@@ -71,14 +75,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h3 class="section-title">Tools That I Use!!!</h3>
+                        <h2 class="section-title">Tools</h2>
                     </div>
                 </div>
-                <div class="container">
+                <div class="row">
                     <div class="col-12">
                         <div class="client-logo-slider d-flex align-items-center">
+
                             <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-                                                                                       src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+                                                                                       src="images/devs/vue.jpg"
+                                                                                       alt="client-logo"></a>
+                            <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                                                                                       src="images/devs/laravel.jpg"
+                                                                                       alt="client-logo"></a>
+
+                            <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                                                                                       src="images/devs/git.jpg"
+                                                                                       alt="client-logo"></a>
+                            <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                                                                                       src="images/devs/python.jpg"
+                                                                                       alt="client-logo"></a>
                         </div>
                     </div>
                 </div>

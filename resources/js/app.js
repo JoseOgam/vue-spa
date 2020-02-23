@@ -40,6 +40,25 @@ import Gate from "./gate";
 Vue.prototype.$gate = new Gate(window.user);
 
 /**
+ * vue-scheduler
+ */
+import VueScheduler from '@duoa/vue-scheduler'
+// Because this components has its styles, you must also import the css file.
+import '@duoa/vue-scheduler/dist/vue-scheduler.css'
+import locale from '@duoa/vue-scheduler/locale/zh-cn'
+
+Vue.use(VueScheduler, { locale })
+
+/**
+ * vue datetime
+ */
+import 'vue-datetime/dist/vue-datetime.css'
+import { Datetime } from 'vue-datetime';
+
+Vue.use(Datetime)
+Vue.component('datetime', Datetime);
+
+/**
  * Vue pagination
  */
 Vue.component('pagination', require('laravel-vue-pagination'));
@@ -98,7 +117,7 @@ const routes = [
     {path: '/dashboard', component: require('./components/Dashboard.vue').default},
     {path: '/work', component: require('./components/Work.vue').default},
     {path: '/users', component: require('./components/Users.vue').default},
-    {path: '*', component: require('./components/NotFound.vue').default},
+
 ];
 
 const router = new VueRouter({

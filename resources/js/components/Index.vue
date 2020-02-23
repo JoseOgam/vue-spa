@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
-                        <h1 class="text-white font-tertiary">Hi! I’m  Joseph, <br>Software Developer</h1>
+                        <h1 class="text-white font-tertiary">Hi! I’m Joseph, <br>Software Developer</h1>
                     </div>
                 </div>
             </div>
@@ -38,10 +38,27 @@
             </div>
             <!-- social icon -->
             <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
-                <li class="mb-3"><a class="text-white" href="#"><i class="ti-facebook"></i></a></li>
-                <li class="mb-3"><a class="text-white" href="#"><i class="ti-instagram"></i></a></li>
-                <li class="mb-3"><a class="text-white" href="#"><i class="ti-dribbble"></i></a></li>
-                <li class="mb-3"><a class="text-white" href="#"><i class="ti-twitter"></i></a></li>
+                <li class="mb-3"><a href="https://www.instagram.com/joseogam/"><img class="img-circle elevation-2"
+                                                                                    src="images/devs/instagram.png"
+                                                                                    style="height: 30px; width: 30px"></a>
+                </li>
+                <li class="mb-3"><a href="https://www.facebook.com/joseph.otieno.963434"><img
+                    class="img-circle elevation-2"
+                    src="images/devs/facebook.png" style="height: 30px; width: 30px"></a>
+                </li>
+                <li class="mb-3"><a href="https://twitter.com/joseogam"><img class="img-circle elevation-2"
+                                                                             src="images/devs/twitter.png"
+                                                                             style="height: 30px; width: 30px"></a>
+                </li>
+                <li class="mb-3"><a href="https://www.linkedin.com/in/joseph-otieno-73a99b168/"><img
+                    class="img-circle elevation-2"
+                    src="images/devs/linkedIn.png" style="height: 30px; width: 30px"></a>
+                </li>
+                <li class="mb-3"><a href="https://github.com/JoseOgam"><img class="img-circle elevation-2"
+                                                                            src="images/devs/git.jpg"
+                                                                            style="height: 30px; width: 30px"></a>
+                </li>
+
             </ul>
             <!-- /social icon -->
         </section>
@@ -52,38 +69,41 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2 class="section-title">What I Do...</h2>
+                        <h2 class="section-title">My Interests...</h2>
                     </div>
                     <div class="col-md-4 mb-4 mb-md-0">
                         <div class="card hover-shadow shadow">
                             <div class="card-body text-center px-4 py-5">
-                                <i class="ti-palette icon mb-5 d-inline-block"></i>
-                                <h4 class="mb-4">UI Design</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et
-                                    dolore magna aliqua.</p>
+                                <img class="img-circle elevation-2"
+                                     src="images/devs/ui.png" style="height: 70px; width: 70px">
+                                <h4 class="mb-4">UI / UX DESIGN</h4>
+                                <p>Applications are developed for people to use. That's why I take a user-centered
+                                    approach to
+                                    design and develop.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4 mb-md-0">
                         <div class="card active-bg-primary hover-shadow shadow">
                             <div class="card-body text-center px-4 py-5">
-                                <i class="ti-vector icon mb-5 d-inline-block"></i>
-                                <h4 class="mb-4">Web Development</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et
-                                    dolore magna aliqua.</p>
+
+                                <img class="img-circle elevation-2"
+                                     src="images/devs/dev.jpg" style="height: 70px; width: 70px">
+                                <h4 class="mb-4">DEVELOPMENT</h4>
+                                <p>Software needs to be robust, dependable, extensible and easy to maintain. My
+                                    principle
+                                    is that of test-driven development.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4 mb-md-0">
                         <div class="card hover-shadow shadow">
                             <div class="card-body text-center px-4 py-5">
-                                <i class="ti-panel icon mb-5 d-inline-block"></i>
-                                <h4 class="mb-4">Web Design</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et
-                                    dolore magna aliqua.</p>
+                                <img class="img-circle elevation-2"
+                                     src="images/devs/arc.png" style="height: 70px; width: 70px">
+                                <h4 class="mb-4">SOFTWARE ARCHITECTURE</h4>
+                                <p>I love softwares that are simple, reliable, fun and elegant. In other words softwares
+                                    with good Architecture</p>
                             </div>
                         </div>
                     </div>

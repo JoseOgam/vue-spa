@@ -9,6 +9,8 @@
 
     <title>Joseph | Legit Portfolio</title>
 
+    <link rel="icon" type="image/ico" href="{{('images/devs/icon.png')}}"/>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -17,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{('/css/app.css')}}" rel="stylesheet">
     <!-- ** Plugins Needed for the Project ** -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
@@ -57,7 +60,7 @@
                     <a class="nav-link" href="{{(route('contact.index'))}}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Resume</a>
+                    <a class="nav-link" href="docs/mycv.pdf">Resume</a>
                 </li>
             </ul>
         </div>
@@ -94,10 +97,7 @@
         </div>
     </div>
     <div class="border-top text-center border-dark py-5">
-        <p class="mb-0 text-light">Copyright ©<script>
-                var CurrentYear = new Date().getFullYear()
-                document.write(CurrentYear)
-            </script> Legit </p>
+        <p class="mb-0 text-light">DESIGNED BY JOSEPH</p>
     </div>
 </footer>
 <!-- /footer -->
